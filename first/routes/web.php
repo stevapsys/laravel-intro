@@ -4,7 +4,8 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
+|ESSA ABA É FEITA PARA ROTEAR AS PÁGINAS. AS LÓGICAS DEVEM ESTAR NO CONTROLLER!
+
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
@@ -44,22 +45,30 @@ Route::get('/opcional/{numero}/{segundo}/{terceiro?}', function ($numero,$segund
     return "Os parametros são: primeiro: {$numero}, segundo: {$segundo} e terceiro: {$terceiro}";
 });
 
+
+Route::get('/meu-primeiro-caminho', 'NumeroController@numero');
+    
+Route :: get('/segunda-pagina/{aluno}', 'NumeroController@segundaPagina');
+
+Route :: get('/par-ou-impar/{numero}', 'NumeroController@parOuimpar'); 
+
+
 //EXERCÍCIOS 
 //a. Crie um caminho chamado /meu-primeiro-caminho que, quando utilizado, imprima “Criei meu primeiro caminho em Laravel”
-Route::get('/meu-primeiro-caminho', function () {
-    return "Crei meu primeiro caminho Laravel";
-});
+//Route::get('/meu-primeiro-caminho', function () {
+//    return "Crei meu primeiro caminho Laravel";
+//});
 
 //b.  Crie um caminho /par-ou-impar/{numero} que, quando utilizado, imprima uma string indicando se o número é par ou ímpar.
-Route::get('/par-ou-impar/{numero}', function ($numero){
+//Route::get('/par-ou-impar/{numero}', function ($numero){
     
     //return $numero%2 === 0 ? "par" : "impar" - if ternário
-    if($numero % 2 == 0){
-    return " esse número é par";
-    } else {
-        return "esse número é ímpar";
-    }
-});
+    //if($numero % 2 == 0){
+    //return " esse número é par";
+    //} else {
+    //    return "esse número é ímpar";
+    //}
+//});
 
 /* c. Modificar o caminho anterior para que possa receber um novo parâmetro opcional, por exemplo (par-ou-impar/{numero}/{numeroOpcional?}. Ou seja, se o caminho anterior receber o novo parâmetro, deve multiplicar os dois números. Caso contrário, deve indicar se ele é par ou ímpar */
 Route::get('/par-ou-impar/{numero}/{numeroOpcional?}', function ($numero, $numeroOpcional= 1) {
