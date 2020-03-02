@@ -84,3 +84,8 @@ return $numero * $numeroOpcional;
     //     return $numero * $numeroOpcional; 
     //    }
    // });
+
+   Route::auth();
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
